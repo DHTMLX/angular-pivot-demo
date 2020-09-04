@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.dhx-container {
+  height: 100%;
+  background-color: #fff;
+}
+
+.dhx-container_header {
+  height: 60px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.dhx-container_header a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #0288d1;
+  margin-bottom: 15px;
+}
+
+.dhx-container_header h3 {
+  color: rgba(0, 0, 0, 0.7);
+}
