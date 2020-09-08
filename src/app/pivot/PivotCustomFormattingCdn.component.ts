@@ -5,23 +5,28 @@ import dataset from "../../../public/static/dataset";
 const fields = {
   rows: ["form", "name"],
   columns: ["year"],
-  values: [{id: "oil", method: "count"}, {id: "gdp", method: "sum"}],
+  values: [
+    { id: "oil", method: "count" },
+    { id: "gdp", method: "sum" },
+  ],
 };
 const fieldList = [
-  {id: "name", label: "Name"},
-  {id: "year", label: "Year"},
-  {id: "continent", label: "Continent"},
-  {id: "form", label: "Form"},
+  { id: "name", label: "Name" },
+  { id: "year", label: "Year" },
+  { id: "continent", label: "Continent" },
+  { id: "form", label: "Form" },
   {
-    id: "gdp", label: "GDP", cellTemplate: function(val) {
+    id: "gdp",
+    label: "GDP",
+    cellTemplate: function (val) {
       return "&euro; " + val;
     },
   },
-  {id: "oil", label: "Oil"},
-  {id: "balance", label: "Balance" },
-  {id: "when", label: "When", type: "date", format: "%d/%m/%Y"},
+  { id: "oil", label: "Oil" },
+  { id: "balance", label: "Balance" },
+  { id: "when", label: "When", type: "date", format: "%d/%m/%Y" },
 ];
-const customFormat = function(cellValue, method) {
+const customFormat = function (cellValue, method) {
   if (method === "count") {
     return cellValue;
   }
@@ -33,9 +38,7 @@ const layout = {
 
 @Component({
   selector: "app-PivotCustomFormattingCdn",
-  template: `
-    <div class="dhx_sample-container__widget" #pivot></div>
-  `,
+  template: ` <div class="dhx_sample-container__widget" #pivot></div> `,
   styleUrls: ["../app.component.css"],
   encapsulation: ViewEncapsulation.None,
 })
@@ -49,16 +52,13 @@ export class PivotCustomFormattingCdn implements OnDestroy {
   @Output() ready: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.wait = fromCDN([
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js",
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css",
-    ]).then(() => {
+    this.wait = fromCDN(["https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js", "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css"]).then(() => {
       this.pivot = new dhx.Pivot(this.container.nativeElement, {
         data: dataset,
         fields,
         fieldList,
         customFormat,
-        layout
+        layout,
       });
     });
   }

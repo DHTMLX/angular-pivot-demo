@@ -5,17 +5,20 @@ import dataset from "../../../public/static/dataset";
 const fields = {
   rows: ["form", "name"],
   columns: ["year"],
-  values: [{id: "oil", method: "count"}, {id: "oil", method: "sum"}],
+  values: [
+    { id: "oil", method: "count" },
+    { id: "oil", method: "sum" },
+  ],
 };
 const fieldList = [
-  {id: "name", label: "Name"},
-  {id: "year", label: "Year"},
-  {id: "continent", label: "Continent"},
-  {id: "form", label: "Form"},
-  {id: "gdp", label: "GDP"},
-  {id: "oil", label: "Oil"},
-  {id: "balance", label: "Balance"},
-  {id: "when", label: "When", type: "date", format: "%d/%m/%Y"},
+  { id: "name", label: "Name" },
+  { id: "year", label: "Year" },
+  { id: "continent", label: "Continent" },
+  { id: "form", label: "Form" },
+  { id: "gdp", label: "GDP" },
+  { id: "oil", label: "Oil" },
+  { id: "balance", label: "Balance" },
+  { id: "when", label: "When", type: "date", format: "%d/%m/%Y" },
 ];
 const layout = {
   footer: true,
@@ -23,9 +26,7 @@ const layout = {
 
 @Component({
   selector: "app-PivotFooterCdn",
-  template: `
-    <div class="dhx_sample-container__widget" #pivot></div>
-  `,
+  template: ` <div class="dhx_sample-container__widget" #pivot></div> `,
   styleUrls: ["../app.component.css"],
   encapsulation: ViewEncapsulation.None,
 })
@@ -39,15 +40,12 @@ export class PivotFooterCdn implements OnDestroy {
   @Output() ready: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.wait = fromCDN([
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js",
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css",
-    ]).then(() => {
+    this.wait = fromCDN(["https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js", "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css"]).then(() => {
       this.pivot = new dhx.Pivot(this.container.nativeElement, {
         data: dataset,
         fields,
         fieldList,
-        layout
+        layout,
       });
     });
   }

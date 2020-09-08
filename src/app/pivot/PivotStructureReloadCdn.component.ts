@@ -4,24 +4,24 @@ import fromCDN from "from-cdn";
 const firstConfig = {
   data: [
     {
-      "name": "Belgium",
-      "year": 2013,
-      "continent": "Europe",
-      "form": "Constitutional monarchy",
-      "gdp": 476.796,
-      "oil": 51.684,
-      "balance": -0.623,
-      "when": "5/9/2013",
+      name: "Belgium",
+      year: 2013,
+      continent: "Europe",
+      form: "Constitutional monarchy",
+      gdp: 476.796,
+      oil: 51.684,
+      balance: -0.623,
+      when: "5/9/2013",
     },
     {
-      "name": "Brazil",
-      "year": 2014,
-      "continent": "South America",
-      "form": "Republic",
-      "gdp": 881.754,
-      "oil": 11.779,
-      "balance": 13.984,
-      "when": "6/10/2014",
+      name: "Brazil",
+      year: 2014,
+      continent: "South America",
+      form: "Republic",
+      gdp: 881.754,
+      oil: 11.779,
+      balance: 13.984,
+      when: "6/10/2014",
     },
   ],
   fieldList: [
@@ -37,26 +37,29 @@ const firstConfig = {
   fields: {
     rows: ["form", "name"],
     columns: ["year"],
-    values: [{ id: "oil", method: "max" }, { id: "oil", method: "sum" }],
+    values: [
+      { id: "oil", method: "max" },
+      { id: "oil", method: "sum" },
+    ],
   },
 };
 const secondConfig = {
   data: [
     {
-      "make_id": "alfa-romeo",
-      "make_display": "Alfa Romeo",
-      "make_is_common": 1,
-      "make_country": "Italy",
+      make_id: "alfa-romeo",
+      make_display: "Alfa Romeo",
+      make_is_common: 1,
+      make_country: "Italy",
     },
-    { "make_id": "allard", "make_display": "Allard", "make_is_common": 1, "make_country": "UK" },
-    { "make_id": "porsche", "make_display": "Porsche", "make_is_common": 5, "make_country": "Germany" },
+    { make_id: "allard", make_display: "Allard", make_is_common: 1, make_country: "UK" },
+    { make_id: "porsche", make_display: "Porsche", make_is_common: 5, make_country: "Germany" },
     {
-      "make_id": "proton",
-      "make_display": "Proton",
-      "make_is_common": 150,
-      "make_country": "Malaysia",
+      make_id: "proton",
+      make_display: "Proton",
+      make_is_common: 150,
+      make_country: "Malaysia",
     },
-    { "make_id": "reliant", "make_display": "Reliant", "make_is_common": 9, "make_country": "UK" },
+    { make_id: "reliant", make_display: "Reliant", make_is_common: 9, make_country: "UK" },
   ],
   fieldList: [
     { id: "make_id", label: "Id" },
@@ -74,7 +77,7 @@ const secondConfig = {
 @Component({
   selector: "app-PivotStructureReloadCdn",
   template: `
-    <div class="dhx-container_inner structure_reload">
+    <div class="dhx-container_inner">
       <section class="dhx_sample-controls">
         <button class="dhx_sample-btn dhx_sample-btn--flat" (click)="setConfig(1)">Set first dataset</button>
         <button class="dhx_sample-btn dhx_sample-btn--flat" (click)="setConfig(2)">Set second dataset</button>
@@ -118,17 +121,14 @@ export class PivotStructureReloadCdn implements OnDestroy {
   @Output() ready: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.wait = fromCDN([
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js",
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css",
-    ]).then(() => {
+    this.wait = fromCDN(["https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js", "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css"]).then(() => {
       this.pivot = new dhx.Pivot(this.container.nativeElement, {
         fieldList: [],
-				fields: {
-					rows: [],
-					columns: [],
-					values: [],
-				},
+        fields: {
+          rows: [],
+          columns: [],
+          values: [],
+        },
       });
     });
   }

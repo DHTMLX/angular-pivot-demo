@@ -16,7 +16,18 @@ export default {
   component: PivotInitCdn,
   decorators: [
     moduleMetadata({
-      declarations: [PivotInitCdn, PivotLoadDataCdn, PivotExportCdn, PivotSetDataCdn, PivotStructureReloadCdn, PivotCustomMarkCdn, PivotCustomFormattingCdn, PivotFooterCdn, PivotEventsCdn, PivotGridEventsCdn],
+      declarations: [
+        PivotInitCdn,
+        PivotLoadDataCdn,
+        PivotExportCdn,
+        PivotSetDataCdn,
+        PivotStructureReloadCdn,
+        PivotCustomMarkCdn,
+        PivotCustomFormattingCdn,
+        PivotFooterCdn,
+        PivotEventsCdn,
+        PivotGridEventsCdn,
+      ],
       imports: [CommonModule],
     }),
   ],

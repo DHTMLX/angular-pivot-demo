@@ -5,17 +5,20 @@ import dataset from "../../../public/static/dataset";
 const fields = {
   rows: ["form", "name"],
   columns: ["year"],
-  values: [{id: "oil", method: "count"}, {id: "oil", method: "sum"}],
+  values: [
+    { id: "oil", method: "count" },
+    { id: "oil", method: "sum" },
+  ],
 };
 const fieldList = [
-  {id: "name", label: "Name"},
-  {id: "year", label: "Year"},
-  {id: "continent", label: "Continent"},
-  {id: "form", label: "Form"},
-  {id: "gdp", label: "GDP"},
-  {id: "oil", label: "Oil"},
-  {id: "balance", label: "Balance"},
-  {id: "when", label: "When", type: "date", format: "%d/%m/%Y"},
+  { id: "name", label: "Name" },
+  { id: "year", label: "Year" },
+  { id: "continent", label: "Continent" },
+  { id: "form", label: "Form" },
+  { id: "gdp", label: "GDP" },
+  { id: "oil", label: "Oil" },
+  { id: "balance", label: "Balance" },
+  { id: "when", label: "When", type: "date", format: "%d/%m/%Y" },
 ];
 const layout = {
   liveReload: false,
@@ -54,26 +57,27 @@ const eventsArray = [
 @Component({
   selector: "app-PivotGridEventsCdn",
   template: `
-    <div class="dhx-container_inner events">
-      <div class="dhx_sample-container__widget" #pivot></div>
-      <div class="dhx_sample-container__sidebar">
-        <div class="events-list--element" *ngIf="this.isEmpty">
-          No events yet
-        </div>
-        <div class="events-list--element dhx_sample-event" *ngFor="let event of events">
-          <p>{{ event.name }}</p>
-          <p>{{ event.value }}</p>
-        </div>
-      </div>
+    <div class="dhx-container_inner">
       <section class="dhx_sample-controls">
         <button class="dhx_sample-btn dhx_sample-btn--flat" (click)="clearAll()">Clear events</button>
       </section>
+      <div class="dhx-events">
+        <div class="dhx_sample-container__widget" #pivot></div>
+        <div class="dhx_sample-container__sidebar">
+          <div class="events-list--element" *ngIf="this.isEmpty">
+            No events yet
+          </div>
+          <div class="events-list--element dhx_sample-event" *ngFor="let event of events">
+            <p>{{ event.name }}</p>
+            <p>{{ event.value }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   `,
   styleUrls: ["../app.component.css"],
   encapsulation: ViewEncapsulation.None,
 })
-
 export class PivotGridEventsCdn implements OnDestroy {
   @ViewChild("pivot", { read: ElementRef })
   container: ElementRef;
@@ -87,28 +91,25 @@ export class PivotGridEventsCdn implements OnDestroy {
   clearAll() {
     this.isEmpty = true;
     this.events.length = 0;
-  };
+  }
 
   @Output() ready: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.wait = fromCDN([
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js",
-      "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css",
-    ]).then(() => {
+    this.wait = fromCDN(["https://cdn.dhtmlx.com/pivot/pro/edge/pivot.js", "https://cdn.dhtmlx.com/pivot/pro/edge/pivot.css"]).then(() => {
       this.pivot = new dhx.Pivot(this.container.nativeElement, {
         data: dataset,
         fields,
         fieldList,
-        layout
+        layout,
       });
 
-      eventsArray.forEach((event) => {
-				this.pivot.grid.events.on(event, (...args) => {
-					this.isEmpty = false;
-          args = args.map(item => item = JSON.stringify(item));
-          this.events = [{name: event, value: `${args}`}].concat(this.events);
-				});
+      eventsArray.forEach(event => {
+        this.pivot.grid.events.on(event, (...args) => {
+          this.isEmpty = false;
+          args = args.map(item => (item = JSON.stringify(item)));
+          this.events = [{ name: event, value: `${args}` }].concat(this.events);
+        });
       });
     });
   }
