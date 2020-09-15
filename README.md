@@ -8,7 +8,6 @@
 # DHTMLX Pivot + Angular
 
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
-[![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
 [![dhx-pivot](https://raw.githubusercontent.com/plazarev/media/master/dhx-pivot.png)](https://dhtmlx.github.io/angular-pivot-demo/?path=/story/pivot--initialization)
 
@@ -29,10 +28,6 @@
 - [Footer](https://dhtmlx.github.io/angular-pivot-demo/?path=/story/pivot--footer)
 - [Events](https://dhtmlx.github.io/angular-pivot-demo/?path=/story/pivot--events)
 - [Grid Events](https://dhtmlx.github.io/angular-pivot-demo/?path=/story/pivot--grid-events)
-
-## License
-
-[![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
 ## Useful links
 
