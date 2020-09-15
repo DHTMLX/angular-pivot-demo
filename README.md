@@ -31,6 +31,7 @@
 
 ## Useful links
 
+- [DHTMLX Pivot product page](https://dhtmlx.com/docs/products/dhtmlxPivot/)
 - [Online  documentation](https://docs.dhtmlx.com/pivot/index.html)
 - [Support forum](https://forum.dhtmlx.com/c/widgets/pivot)
 
