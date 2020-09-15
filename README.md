@@ -9,6 +9,8 @@
 
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 
+From this file you'll learn how to integrate DHTMLX [JavaScript pivot table](https://dhtmlx.com/docs/products/dhtmlxPivot/) with Angular. 
+
 [![dhx-pivot](https://raw.githubusercontent.com/plazarev/media/master/dhx-pivot.png)](https://dhtmlx.github.io/angular-pivot-demo/?path=/story/pivot--initialization)
 
 ## How to run
@@ -31,8 +33,8 @@
 
 ## Useful links
 
-- [DHTMLX Pivot product page](https://dhtmlx.com/docs/products/dhtmlxPivot/)
 - [Online  documentation](https://docs.dhtmlx.com/pivot/index.html)
+- [DHTMLX Pivot product page](https://dhtmlx.com/docs/products/dhtmlxPivot/)
 - [Support forum](https://forum.dhtmlx.com/c/widgets/pivot)
 
 ## Follow us
