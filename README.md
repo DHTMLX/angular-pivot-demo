@@ -34,7 +34,7 @@ From this file you'll learn how to integrate DHTMLX [JavaScript pivot table](htt
 ## Useful links
 
 - [Online  documentation](https://docs.dhtmlx.com/pivot/index.html)
-- [DHTMLX Pivot product page](https://dhtmlx.com/docs/products/dhtmlxPivot/)
+- [Download DHTMLX Pivot widget](https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml)
 - [Support forum](https://forum.dhtmlx.com/c/widgets/pivot)
 
 ## Follow us
