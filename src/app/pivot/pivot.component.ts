@@ -26,32 +26,32 @@ export class PivotComponent implements OnInit, OnDestroy {
 		const { dataset, fields } = getData();
 		this._table = new Pivot(this.pivot_container.nativeElement, {
 			fields,
-            data: dataset,
-            headerShape: {
-                collapsible: true
-            },
-            tableShape: {
-                tree: true,
+      data: dataset,
+      headerShape: {
+        collapsible: true
+      },
+      tableShape: {
+        tree: true,
 				templates: ["profit", "sales"].reduce((acc:{[key: string]: any}, field) => (acc[field] = (v: any) => (v ? Math.ceil(v) : ""), acc), {})
-            },
-            config: {
-                rows: ["state", "product_type"],
-                columns: ["product_line", "type"],
-                values: [
-                    {
-                        field: "profit",
-                        method: "sum"
-                    },
-                    {
-                        field: "sales",
-                        method: "sum"
-                    },
-                    {
-                        field: "date",
-                        method: "min"
-                    }
-                ]
-            }
+      },
+      config: {
+        rows: ["state", "product_type"],
+        columns: ["product_line", "type"],
+        values: [
+          {
+            field: "profit",
+            method: "sum"
+          },
+          {
+            field: "sales",
+            method: "sum"
+          },
+          {
+            field: "date",
+            method: "min"
+          }
+        ]
+      }
 		});
 	}
 
