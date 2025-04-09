@@ -3,7 +3,7 @@
   "postAttachCommand": "yarn start",
   "customizations": {
     "codespaces": {
-      "openFiles": ["src/app/event-calendar/event-calendar.component.ts"]
+      "openFiles": ["src/app/pivot/pivot.component.ts"]
     }
   }
 }
